@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import stylesheet from './app.css?url';
+import { TopNav } from './TopNav';
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -19,7 +20,7 @@ export const links: Route.LinksFunction = () => [
 	},
 	{
 		rel: 'stylesheet',
-		href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+		href: 'https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap',
 	},
 	{ rel: 'stylesheet', href: stylesheet },
 ];
@@ -34,6 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
+				<TopNav />
 				{children}
 				<ScrollRestoration />
 				<Scripts />
@@ -63,11 +65,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	}
 
 	return (
-		<main class='pt-16 p-4 container mx-auto'>
+		<main className='pt-16 p-4 container mx-auto'>
 			<h1>{message}</h1>
 			<p>{details}</p>
 			{stack && (
-				<pre class='w-full p-4 overflow-x-auto'>
+				<pre className='w-full p-4 overflow-x-auto'>
 					<code>{stack}</code>
 				</pre>
 			)}
